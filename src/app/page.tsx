@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { QuestionAnalysis } from '@/app/components/PieComponent';
-import { Button } from '@/components/ui/button';
 import UpdateScoresDialog from '@/app/components/UpdateScoresDialog';
 import { Trophy, Percent, CheckCircle2, BarChart, Brain, Briefcase, Menu, X } from 'lucide-react';
 import PercentileChart from '@/app/components/LineChart';
@@ -10,7 +9,7 @@ import logo from '@/assets/images/image.png';
 import applogo from '@/assets/images/logo.png';
 import me from '@/assets/images/DSC_0037.jpg';
 import Image from 'next/image'
-import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
+import { Drawer, DrawerContent } from '@/components/ui/drawer';
 
 
 const SidebarItem = ({ icon, text, isActive = false }: { icon: JSX.Element; text: string; isActive?: boolean }) => (

@@ -1,9 +1,14 @@
 "use client"
 
 import React from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, ResponsiveContainer, TooltipProps } from 'recharts';
 
-const data = [
+interface DataPoint {
+  percentile: number;
+  numberOfStudents: number;
+}
+
+const data: DataPoint[] = [
   { percentile: 0, numberOfStudents: 5 },
   { percentile: 10, numberOfStudents: 10 },
   { percentile: 20, numberOfStudents: 15 },
@@ -19,7 +24,7 @@ const data = [
 
 const averagePercentile = 72; 
 
-const CustomTooltip = ({ active, payload, label }: { active: boolean, payload: any[], label: string }) => {
+const CustomTooltip: React.FC<TooltipProps<number, string>> = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
       <div className="bg-white p-2 border border-gray-300 rounded shadow">
@@ -29,12 +34,6 @@ const CustomTooltip = ({ active, payload, label }: { active: boolean, payload: a
     );
   }
   return null;
-};
-
-CustomTooltip.defaultProps = {
-  active: false,
-  payload: [],
-  label: '',
 };
 
 const PercentileChart = ({ userPercentile }: { userPercentile: number }) => {
