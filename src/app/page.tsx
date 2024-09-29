@@ -117,12 +117,11 @@ return (
   <div className='flex flex-col min-h-screen bg-gray-100'>
       <Navbar onMenuClick={toggleSidebar} />
       <div className='flex flex-1'>
-        {/* Sidebar for large screens */}
+
         <div className="hidden lg:block w-64">
           <Sidebar />
         </div>
 
-        {/* Drawer for small screens */}
         <Drawer open={isSidebarOpen} onOpenChange={setIsSidebarOpen}>
           <DrawerContent>
             <Sidebar className="w-full" onClose={() => setIsSidebarOpen(false)} />
@@ -169,7 +168,7 @@ return (
               </div>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-5">
               <div className="bg-white p-4 md:p-6 rounded-md shadow-md">
                 <h2 className="text-xl font-semibold mb-4">Syllabus Wise Analysis</h2>
                 {pieChartData.map((item, index) => (

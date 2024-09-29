@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
+import Image from 'next/image';
 
 type UpdateScoresDialogProps = {
   isOpen: boolean;
@@ -17,6 +18,17 @@ const UpdateScoresDialog = ({ isOpen, onClose, onSave, initialValues }: UpdateSc
   const [percentile, setPercentile] = useState(initialValues.percentile);
   const [score, setScore] = useState(initialValues.score);
   const [errors, setErrors] = useState({ rank: '', percentile: '', score: '' });
+
+  // useEffect(() => {
+  //   if(parseFloat(score) > 15){
+  //     setScore('15');
+  //   }
+
+  //   if(parseFloat(percentile) > 15){
+  //     setPercentile('100');
+  //   }
+  // },[score]);
+
 
   const handleSave = () => {
     const newErrors = {
@@ -49,6 +61,12 @@ const UpdateScoresDialog = ({ isOpen, onClose, onSave, initialValues }: UpdateSc
         <DialogHeader>
           <DialogTitle>Update Scores</DialogTitle>
         </DialogHeader>
+        {/* <Image 
+          src={"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-sticker%2Fhi_6028690&psig=AOvVaw2Prw1XjDAYG2ql3EGI_DLN&ust=1725794624801000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIDf3I7csIgDFQAAAAAdAAAAABAE"}
+          height={50}
+          width={50}
+          alt='img'
+        /> */}
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
             <label htmlFor="rank" className="text-right">
@@ -73,6 +91,16 @@ const UpdateScoresDialog = ({ isOpen, onClose, onSave, initialValues }: UpdateSc
                 id="percentile"
                 value={percentile}
                 onChange={(e) => setPercentile(e.target.value)}
+                // onChange={(e) => {
+                //   const newValue = e.target.value;
+                //   const numeric = parseFloat(newValue)
+
+                //   if(!isNaN(numeric)){
+                //     setPercentile(Math.min(numeric,100).toString());
+                //   }else{
+                //     setPercentile(newValue);
+                //   }
+                // }}
                 className="w-full"
               />
               {errors.percentile && <p className="text-red-500 text-sm">{errors.percentile}</p>}
@@ -87,6 +115,16 @@ const UpdateScoresDialog = ({ isOpen, onClose, onSave, initialValues }: UpdateSc
                 id="score"
                 value={score}
                 onChange={(e) => setScore(e.target.value)}
+                // onChange={(e) => {
+                //   const newValue = e.target.value;
+                //   const numeric = parseFloat(newValue)
+
+                //   if(!isNaN(numeric)){
+                //     setScore(Math.min(numeric,15).toString());
+                //   }else{
+                //     setScore(newValue);
+                //   }
+                // }}
                 className="w-full"
               />
               {errors.score && <p className="text-red-500 text-sm">{errors.score}</p>}

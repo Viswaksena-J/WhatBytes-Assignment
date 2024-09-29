@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="../library/angular-1.2.27-min.js"></script>
+    <script src="../library/react-15.3.2.min.js"></script>
+    <script src="../library/babel-6.17.0.min.js"></script>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <section id="content">
+      <h2>Dynamic Paragraph Modifier</h2>
+      <p id="modifiable-paragraph">This is a modifiable paragraph.</p>
+      <input type="text" id="text-input" placeholder="Change text" />
+
+      <!-- Added input field to modify the font size -->
+      <input
+        type="number"
+        id="font-size-input"
+        placeholder="Font size"
+        min="10"
+        max="100"
+      />
+
+      <div id="color-buttons">
+        <button id="red-color">Red</button>
+      </div>
+    </section>
+    <script src="index.js"></script>
+  </body>
+</html>

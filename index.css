@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fef0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+#content {
+    text-align: center;
+}
+#modifiable-paragraph {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+input {
+    font-size: 16px;
+    padding: 8px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+#color-buttons {
+    margin-top: 10px;
+}
+button {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Styles for the red color button */
+#red-color {
+    background-color: red;
+    color: white;
+}
